@@ -1,0 +1,4 @@
+document.csv filter=lfs diff=lfs merge=lfs -text
+codes.csv filter=lfs diff=lfs merge=lfs -text
+zpo.csv filter=lfs diff=lfs merge=lfs -text
+extracted_norms.csv filter=lfs diff=lfs merge=lfs -text
