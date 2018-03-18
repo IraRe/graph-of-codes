@@ -13,7 +13,7 @@ As a part of my preparation for a [conference talk](https://programm.javaland.eu
 
 #### Transforming to CSV files
 
-For more convenient import of the data into the graph I have processed all the sources with a [KNIME](https://www.knime.com/) workflow into a CSV file suitable for my purposes.* All the transformed data can be found on [GitHub repository](https://github.com/IraRe/graph-of-codes-data).
+For more convenient import of the data into the graph I have processed all the sources with a [KNIME](https://www.knime.com/) workflow into a CSV file suitable for my purposes.* All the transformed data can be found on this [GitHub repository](https://github.com/IraRe/graph-of-codes-data).
 
 For the extraction of norm occurrences in legal documents following regular expression was used:
 ```
