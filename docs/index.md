@@ -22,7 +22,7 @@ For the extraction of norm occurrences in legal documents following regular expr
 
 #### Importing into the graph
 
-Cypher scripts used for importing the data into the Neo4j database can be found also found on a [GitHub repository](here: https://github.com/IraRe/graph-of-codes-data/tree/master/scripts).
+Cypher scripts used for importing the data into the Neo4j database can be also found on a [GitHub repository](here: https://github.com/IraRe/graph-of-codes-data/tree/master/scripts).
 In order to properly import and connect the data, please start the import with the `codes_import.cql` script.
 
 ## Exploring data in the graph
