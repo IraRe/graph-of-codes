@@ -22,15 +22,13 @@ For the extraction of norm occurrences in legal documents following regular expr
 
 #### Importing into the graph
 
-Cypher scripts used for importing the data into the Neo4j database can be also found on a [GitHub repository](here: https://github.com/IraRe/graph-of-codes-data/tree/master/scripts).
+Cypher scripts used for importing the data into the Neo4j database can be also found on a [GitHub repository](https://github.com/IraRe/graph-of-codes-data/tree/master/scripts).
 In order to properly import and connect the data, please start the import with the `codes_import.cql` script.
 
 ## Exploring data in the graph
 
-A Neo4j Sandbox instance with all the data already imported will be available until the end of April under the following IP address: 
-```
-http://107.23.190.94:33961/browser/
-```
+A Neo4j Cloud instance with all the data already imported is available here: [https://79faa851.databases.neo4j.io/browser/](https://79faa851.databases.neo4j.io/browser/)
+
 The user `codes` with the same password has a reading access to the data.
 
 For exploring the linked data in the graph I have created two browser guides:
@@ -39,9 +37,6 @@ For exploring the linked data in the graph I have created two browser guides:
 :play https://guides.neo4j.com/javaland.html
 ```
 2. A more enhanced English version will be added soon.
-
-
-A persistent deployment on https://neo4j.com/cloud/ will be created soon. 
 
 ## *Disclaimer
 As a result of trial and error processing of the data, this project doesn't satisfy the requirements of [reproducible research](https://www.coursera.org/learn/reproducible-research). 
