@@ -4,7 +4,7 @@ create index on :Code(forensicAbbreviation);
 
 
 // import code nodes with names (forensic abbreviation and code title)
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/codes.csv" as line
     merge (c:Code {forensicAbbreviation: line.code})
     with * where size(line.info) > 0
@@ -12,6 +12,7 @@ load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/mas
 
 
 // import codes' footnotes
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/codes.csv" as line
     with * where size(line.info) > 0
     match (c:Code {forensicAbbreviation: line.code})
@@ -25,7 +26,7 @@ create index on :Section(sectionTitle);
 
 
 // import sections of the codes with their number and title if existent
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/codes.csv" as line
     with * where size(line.section) > 0
     match (c:Code {forensicAbbreviation: line.code})
@@ -34,17 +35,17 @@ load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/mas
 
 
 // import paragraphs (heavy load operation)
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/codes.csv" as line
     with * where size(line.paragraph) > 0
-    match (c:Code {forensicAbbreviation: line.code})-[:HAS_SECTION]->(s:Section {sectionNumber: line.section, sectionTitle: line.title})
+    match (c:Code {forensicAbbreviation: line.code})-[:HAS_SECTION]->(s:Section {sectionNumber: line.section})
     create (s)-[:HAS_PARAGRAPH]->(p:Paragraph {text: line.paragraph});
 
 
 create index on :Footnote(text);
 
 // import paragraphs' footnotes
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/codes.csv" as line
     with * where size(line.footnote) > 0
     match (c:Code {forensicAbbreviation: line.code})-[:HAS_SECTION]->(s:Section {sectionNumber: line.section})
@@ -52,19 +53,19 @@ load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/mas
 
 
 // import ZPO (by repeating last load statements for zpo.csv)
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/zpo.csv" as line
     with * where size(line.info) > 0
     merge (c:Code {forensicAbbreviation: line.code})
     set c.codeTitle = line.info;
 
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/zpo.csv" as line
     with * where size(line.footnote) > 0
     match (c:Code {forensicAbbreviation: line.code})
     set c.footnotes = coalesce(c.footnotes,[]) + [line.footnote];
 
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/zpo.csv" as line
     with * where size(line.section) > 0
     match (c:Code {forensicAbbreviation: line.code})
@@ -72,14 +73,14 @@ load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/mas
     on create set s.sectionTitle=line.title;
 
 
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/zpo.csv" as line
     with * where size(line.paragraph) > 0
     match (c:Code {forensicAbbreviation: line.code})-[:HAS_SECTION]->(s:Section {sectionNumber: line.section})
     create (s)-[:HAS_PARAGRAPH]->(p:Paragraph {text: line.paragraph});
 
 
-using periodic commit 500
+using periodic commit 1000
 load csv with headers from "https://github.com/IraRe/graph-of-codes-data/raw/master/zpo.csv" as line
     with * where size(line.footnote) > 0
     match (c:Code {forensicAbbreviation: line.code})-[:HAS_SECTION]->(s:Section {sectionNumber: line.section})

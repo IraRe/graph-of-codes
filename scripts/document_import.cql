@@ -169,3 +169,17 @@ match (o:Occurrence) where exists(o.code)
         ],
         '', {o:o}) yield value
         return value;
+
+match (o:Occurrence)
+    where o.code =~ "SGB\\s[IVX]+"
+    with apoc.text.regexGroups(o.code, "(SGB)\\s([IVX]+)") as groups, o
+    with o, groups[0][1] as code, groups[0][2] as version,
+        {I:1, II:2, III:3, IV:4, V:5, VI:6, VII:7, VIII:8, IX:9, X:10, XI:11, XII:12} as romannums
+    call apoc.do.case([
+        exists(o.section) and exists(o.paragraph),
+        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section})-[:HAS_PARAGRAPH]->(p:Paragraph {paragraphNumber:o.paragraph}) where c.forensicAbbreviation = code and toInteger(c.version) = version create (p)-[:OCCURS_IN]->(o)<-[:OCCURS_IN]-(s)',
+        exists(o.section),
+        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section}) where c.forensicAbbreviation = code and toInteger(c.version) = version create (o)<-[:OCCURS_IN]-(s)'
+        ],
+        '', {o:o, code:code, version:romannums[version]}) yield value
+        return value;
