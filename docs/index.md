@@ -17,7 +17,7 @@ For more convenient import of the data into the graph I have processed all the s
 
 For the extraction of norm occurrences in legal documents following regular expression was used:
 ```
-(§|§§|Art\.?)(?<codes>,?\s(?<section>[\da-c]+)(\sI{0,3}V?)?((\sund\s(?<section2>[\da-c]+))|(?<sections>(,\s?[\da-c]+(\sI)?)+)|-(?<toSection>\d+))?((\s(Abs\.|Absatz)\s?(?<paragraph>\d)+(\sund\s(?<paragraph2>\d+))?)?(?<paragraphs>,\s\d+)*(\s(S\.|Satz)\s?(?<sentence>\d+),?)?)+(\sNr\.\s(?<number>\d+))?(\sff\.)?(\s(?<subsentence>\d+)\.\sHalbsatz)?(\s(?<alternative>\d+)\.\sAlt\.)?)+\s(?<code>[^Rn]\w+)(,\s(?<c2Section>\d+)\sAbs\.\s(?<c2Paragraph>\d+)\s(?<c2Code>\w+))?
+(§|§§|Art\.?)(?<codes>,?\s(?<section>[\da-c]+)(\sI{0,3}V?)?((\sund\s(?<section2>[\da-c]+))|(?<sections>(,\s?[\da-c]+(\sI)?)+)|-(?<toSection>\d+))?((\s(Abs\.|Absatz)\s?(?<paragraph>\d)+(\sund\s(?<paragraph2>\d+))?)?(?<paragraphs>,\s\d+)*(\s(S\.|Satz)\s?(?<sentence>\d+),?)?)+(\sNr\.\s(?<number>\d+))?(\sff\.)?(\s(?<subsentence>\d+)\.\sHalbsatz)?(\s(?<alternative>\d+)\.\sAlt\.)?)+(\sdes)?\s(?<code>[^Rn]\w+(\s[VIX]+)?)(,\s(?<c2Section>\d+)\sAbs\.\s(?<c2Paragraph>\d+)\s(?<c2Code>\w+))?
 ```
 
 #### Importing into the graph
