@@ -10,9 +10,9 @@ merge (doc)-[:HAS_OCCURRENCE]->(occ);
 match (o:Occurrence) where exists(o.code)
     call apoc.do.case([
         exists(o.section) and exists(o.paragraph),
-        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section})-[:HAS_PARAGRAPH]->(p:Paragraph {paragraphNumber:o.paragraph}) where c.forensicAbbreviation = o.code or c.alternativeForensicAbbrivation = o.code merge (p)-[:OCCURS_IN]->(o)<-[:OCCURS_IN]-(s)',
+        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section})-[:HAS_PARAGRAPH]->(p:Paragraph {paragraphNumber:o.paragraph}) where not s.sectionType = "Anlage" and (c.forensicAbbreviation = o.code or c.alternativeForensicAbbrivation = o.code) merge (p)-[:OCCURS_IN]->(o)<-[:OCCURS_IN]-(s)',
         exists(o.section),
-        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section}) where c.forensicAbbreviation = o.code or c.alternativeForensicAbbrivation = o.code merge (o)<-[:OCCURS_IN]-(s)'
+        'match (c:Code)-[:HAS_SECTION]->(s:Section {sectionNumber:o.section}) where not s.sectionType = "Anlage" and (c.forensicAbbreviation = o.code or c.alternativeForensicAbbrivation = o.code) merge (o)<-[:OCCURS_IN]-(s)'
         ],
         '', {o:o}) yield value
         return value;
