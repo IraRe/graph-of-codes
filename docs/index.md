@@ -7,7 +7,7 @@
 As a part of my preparation for a [conference talk](https://programm.javaland.eu/2018/#/scheduledEvent/549166) I have imported and connected in a graph following data:
 1. Norms of German law provided by "Bundesministerium der Justiz und für Verbraucherschutz" and "juris GmbH" under [https://www.gesetze-im-internet.de/](https://www.gesetze-im-internet.de/)
 2. Legal documents provided by open [openJur e.V.](https://openjur.de/)
-3. Extractions of norm occurrences in didactic material kindly provided by [Hanjo Hamann](http://hanjo.1hamann.de/)
+3. Extractions of norm occurrences in didactic material kindly provided by [Hanjo Hamann](https://www.coll.mpg.de/team/page/hanjo_hamann)
 
 ### Data Processing
 
