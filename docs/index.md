@@ -36,7 +36,7 @@ For exploring the linked data in the graph I have created two browser guides:
 ```
 :play https://guides.neo4j.com/javaland.html
 ```
-2. A more enhanced English version will be added soon.
+2. An English version can be found [here](https://github.com/IraRe/graph-of-codes/blob/master/docs/javaland-en.adoc). It is a slightly changed translation from the German one and can only be run locally as described in [this documentation](https://neo4j.com/developer/guide-create-neo4j-browser-guide/).
 
 ## *Disclaimer
 As a result of trial and error processing of the data, this project doesn't satisfy the requirements of [reproducible research](https://www.coursera.org/learn/reproducible-research). 
