@@ -1,7 +1,7 @@
 :imagesdir: ./images
 = Graph of codes - Exploration
 
-
+This GraphGist can be run on https://79faa851.databases.neo4j.io/browser/ with username codes and same password. Only reading queries can be executed. 
 
 == Schema
 
@@ -9,7 +9,7 @@ image::https://github.com/IraRe/graph-of-codes/raw/master/images/schema_norms.pn
 
 [source,cypher]
 ----
-call db.schema
+call db.schema();
 ----
 
 
