@@ -5,7 +5,7 @@
 
 == Schema
 
-image::https://github.com/IraRe/graph-of-codes/raw/master/images/schema_norms.png[float=right]
+image::https://github.com/IraRe/graph-of-codes/raw/master/images/schema_norms.png[]
 
 [source,cypher]
 ----
@@ -40,7 +40,7 @@ match (c1:Code)-[:HAS_SECTION]->(s1:Section),
 
 === Graph model of the documents
 
-image::https://github.com/IraRe/graph-of-codes/raw/master/images/schema_documents.png[float=right]
+image::https://github.com/IraRe/graph-of-codes/raw/master/images/schema_documents.png[]
 
 [source,cypher]
 ----
@@ -256,7 +256,7 @@ call algo.pageRank.stream('Section', 'NEXT', {iterations: 5})
 
 === Graph model
 
-image::https://github.com/IraRe/graph-of-codes/raw/master/images/document_common_attributes.png[float=right]
+image::https://github.com/IraRe/graph-of-codes/raw/master/images/document_common_attributes.png[]
 
 [source, cypher]
 ----
